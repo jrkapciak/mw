@@ -2,7 +2,7 @@
 name = "zonifero"
 version = "0.1.0"
 description = ""
-authors = ["Zonifero/PythonTeam"]
+authors = ["Jerzy Kapciak <jerzyryszardkapciak@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
