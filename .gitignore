@@ -75,7 +75,7 @@ celerybeat.pid
 
 # Environments
 .env_*
-
+.env
 # IDE
 /.idea
 
