@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "zonifero"
+version = "2.0.0"
+description = ""
+authors = ["Jerzy Kapciak <jerzy.kapciak@zonifero.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.6"
+psycopg2 = "^2.9.9"
+black = "^23.10.1"
+isort = "^5.12.0"
+bandit = "^1.7.5"
+flake8 = "^6.1.0"
+pylint = "^3.0.2"
+python-dotenv = "^1.0.0"
+djangorestframework = "^3.14.0"
+drf-yasg = "^1.21.7"
+gunicorn = "^21.2.0"
+whitenoise = "^6.6.0"
+
+[tool.black]
+line-length = 120
+target-version = ["py311"]
+
+[tool.isort]
+line_length = 120
+
+[tool.pylint.DESIGN]
+max-args = 5
+good-names="i,j,k,v,ex,_,pk,x,y"
+
+[tool.pylint.FORMAT]
+max-line-length = 120
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = "missing-docstring, line-too-long, logging-fstring-interpolation, duplicate-code"
+
+[tool.pylint.SIMILARITIES]
+ignore-comments = "yes"
+ignore-docstrings = "yes"
+ignore-imports = "yes"
+min-similarity-lines = 5
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
