@@ -10,7 +10,7 @@ flake8:
 	poetry run flake8 .
 
 pylint:
-	poetry run pylint src
+	poetry run pylint */*.py
 
 bandit:
 	poetry run bandit -r .
