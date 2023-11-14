@@ -44,8 +44,8 @@ ignore-imports = "yes"
 min-similarity-lines = 5
 
 [tool.bandit]
-exclude: test_*.py,./venv/,./env/, /.env,./.venv,migrations,tests
-skips: B101,B311
+exclude=["test_*.py","./venv/","./env/", "/.env","./.venv","migrations","tests"]
+skips=["B101","B311"]
 
 [build-system]
 requires = ["poetry-core"]
