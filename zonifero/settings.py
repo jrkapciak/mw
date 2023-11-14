@@ -26,6 +26,7 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 DEBUG = os.environ.get("DJANGO_DEBUG")
 ENVIRONMENT = os.environ.get("ENVIRONMENT")
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS").split(" ")
 
 # Application definition
 
@@ -55,7 +56,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "zonifero.urls"
-CSRF_TRUSTED_ORIGINS = ["https://django-mw1*", "http://django-mw1*"]
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
