@@ -55,7 +55,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "zonifero.urls"
-
+CSRF_TRUSTED_ORIGINS = ["https://django-mw1*", "http://django-mw1*"]
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
