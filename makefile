@@ -15,8 +15,6 @@ pylint:
 bandit:
 	poetry run bandit -r .
 
-lint: isort black flake8 pylint
+lint: isort black flake8 pylint bandit
 
-tests: test
-
-all: lint tests
+all: lint
