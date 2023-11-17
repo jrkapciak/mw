@@ -19,10 +19,17 @@ djangorestframework = "^3.14.0"
 drf-yasg = "^1.21.7"
 gunicorn = "^21.2.0"
 whitenoise = "^6.6.0"
+django-debug-toolbar = "^4.2.0"
 
 [tool.black]
 line-length = 120
 target-version = ["py311"]
+exclude = '''
+/(
+  | migrations
+  .env_local.py
+)/
+'''
 
 [tool.isort]
 line_length = 120
@@ -42,10 +49,11 @@ ignore-comments = "yes"
 ignore-docstrings = "yes"
 ignore-imports = "yes"
 min-similarity-lines = 5
+disable = "R0903"
 
 [tool.bandit]
-exclude=["test_*.py","./venv/","./env/", "/.env","./.venv","migrations","tests"]
-skips=["B101","B311"]
+exclude = ["test_*.py","./venv/","./env/", "/.env","./.venv","migrations","tests"]
+skips = ["B101","B311"]
 
 [build-system]
 requires = ["poetry-core"]
