@@ -1,5 +1,4 @@
 FROM python:3.11-slim
-
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
@@ -11,7 +10,7 @@ WORKDIR /app
 
 COPY /poetry.lock pyproject.toml /app/
 
-RUN pip3 install poetry && poetry install
+RUN pip3 install poetry && poetry install --without dev
 
 COPY . /app/
 
