@@ -1,10 +1,10 @@
 .DEFAULT_GOAL := all
 
 isort:
-	poetry run isort .
+	poetry run isort . $(diff)
 
 black:
-	poetry run black .
+	poetry run black . $(diff)
 
 flake8:
 	poetry run flake8 .
@@ -16,5 +16,4 @@ bandit:
 	poetry run bandit -r .
 
 lint: isort black flake8 pylint bandit
-
 all: lint

@@ -1,0 +1,42 @@
+trigger:
+- '*'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  # Primary virtual environment used for poetry.
+  # Also made available to .ap/scripts/python.py to resolve to the correct
+  #  Python.
+  venv: .poetry
+  app_venv: .venv
+
+jobs:
+- job: BuildAndTest
+  displayName: 'Build and Test'
+  strategy:
+    maxParallel: 4
+
+  steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.11'
+
+  - script: |
+      curl -sSL https://install.python-poetry.org | python3 -
+      python3 -m venv venv
+      source venv/bin/activate
+    displayName: 'Install Dependencies'
+
+  - script: |
+      curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+      export PATH=$PATH:$HOME/.poetry/bin
+      poetry install --no-root
+    displayName: 'Install dependencies'
+
+  - script: echo "##vso[task.prependpath]$HOME/.poetry/bin"
+    displayName: Add poetry to PATH
+  
+  - script: |
+      poetry run make diff=--diff
+    displayName: 'Run Static Analysis'

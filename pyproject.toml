@@ -24,11 +24,12 @@ django-debug-toolbar = "^4.2.0"
 [tool.black]
 line-length = 120
 target-version = ["py311"]
-exclude = '''
+--extend-exclude = '''
 /(
-  | migrations
   .env_local.py
+  /venv
 )/
+| migrations/
 '''
 
 [tool.isort]
@@ -40,6 +41,7 @@ good-names="i,j,k,v,ex,_,pk,x,y"
 
 [tool.pylint.FORMAT]
 max-line-length = 120
+ignore-paths=".*/migrations"
 
 [tool.pylint."MESSAGES CONTROL"]
 disable = "missing-docstring, line-too-long, logging-fstring-interpolation, duplicate-code"
